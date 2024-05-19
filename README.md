@@ -5,7 +5,7 @@ This is the official code for the paper  “ReconBoost: Boosting Can Achieve Mod
 
 **Paper Title: ReconBoost: Boosting Can Achieve Modality Reconcilement.**   
 
-**Authors: Cong Hua,  [Qianqian Xu$^{*}$](https://qianqianxu010.github.io/), [Shilong Bao](https://statusrank.github.io/), [Zhiyong Yang](https://joshuaas.github.io/), [Qingming Huang$^{*}$](https://people.ucas.ac.cn/~qmhuang)**   
+**Authors: Cong Hua,  [Qianqian Xu*](https://qianqianxu010.github.io/), [Shilong Bao](https://statusrank.github.io/), [Zhiyong Yang](https://joshuaas.github.io/), [Qingming Huang*](https://people.ucas.ac.cn/~qmhuang)**   
 
 
 
@@ -29,11 +29,11 @@ pip install -r requirements.txt
 
 In our paper, six benchmarks are adopted for evaluation. CREMA-D, AVE and ModelNet40 (front-rear views) are two-modality datasets and MOSI, MOSEI and SIMS are tri-modality datasets. . The statistics of all datasets used in the experiments are included in the table below.
 
-![image-20240520001124087](docs\dataset.png)
+![image-20240520001124087](docs/dataset.png)
 
 ## Training
 
-For training, we provide hyper-parameter settings, running command and checkpoints for each dataset. To enhance the stability of the training process, we load the [**pre-trained uni-modal model**](cache\pretrained_unimodel) via specifying hyper-parameter `--use_pretrain`.
+For training, we provide hyper-parameter settings, running command and checkpoints for each dataset. To enhance the stability of the training process, we load the [**pre-trained uni-modal model**](cache/pretrained_unimodel) via specifying hyper-parameter `--use_pretrain`.
 
 Get started with TensorBoard to monitor the training process.
 
@@ -41,7 +41,7 @@ Get started with TensorBoard to monitor the training process.
 tensorboard --logdir ./ --port 6007 --bind_all
 ```
 
-The well-trained models are saved at [**here**](cache\ckpt). 
+The well-trained models are saved at [**here**](cache/ckpt). 
 
 **CREMA-D dataset**
 
@@ -138,9 +138,9 @@ python train_MSA.py
 --feature_dims [768, 33, 709]
 ```
 
-## 4. Evaluation 
+## Evaluation 
 
-#### 4.1 Overall Evaluation
+#### Overall Evaluation
 
 **CREMA-D dataset**
 
@@ -157,7 +157,7 @@ python eval.py --dataset AVE --dataset_path /data/huacong/AVE_Dataset --n_class 
 --uni_ckpt_path cache/ckpt/AVE/uni_encoder_XX.pth
 ```
 
-#### 4.2 Uni-modal Linear-prob Evaluation
+#### Uni-modal Linear-prob Evaluation
 
 Evaluate the audio encoder on CREMA-D dataset.
 
@@ -171,11 +171,9 @@ Evaluate the visual encoder on AVE dataset.
 python uni_eval.py --dataset AVE --dataset_path /data/huacong/AVE_Dataset --modality visual --n_class 28 --batch_size 64 --max_epochs 100 --emb 512 --uni_ckpt_path cache/ckpt/AVE/uni_encoder_XX.pth
 ```
 
+#### Latent Embedding Visualization
 
-
-#### 4.3 Latent Embedding Visualization
-
-Latent embeddings among different competitors are saved in  .
+Latent embeddings among different competitors are saved at [here](all_feat).
 
 To visualize high-dimension embedding, you can run the following command.
 
