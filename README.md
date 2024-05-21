@@ -41,12 +41,12 @@ Get started with TensorBoard to monitor the training process.
 tensorboard --logdir ./ --port 6007 --bind_all
 ```
 
-The well-trained models are saved at [**here**](cache/ckpt). 
+The well-trained models are saved at [**here**](cache/ckpt).
 
 **CREMA-D dataset**
 
 ```bash
-python train2.py 
+python train.py 
 --dataset CREMAD 
 --dataset_path /data/huacong/CREMA/data
 --n_class 6
@@ -68,7 +68,7 @@ python train2.py
 **AVE dataset**
 
 ```bash
-python train2.py 
+python train.py 
 --dataset AVE 
 --dataset_path /data/huacong/AVE_Dataset
 --n_class 28
@@ -90,7 +90,7 @@ python train2.py
 **ModelNet40 dataset**
 
 ```bash
-python train2.py
+python train.py
 --dataset MView40
 --dataset_path /data/huacong/ModelNet40
 --n_class 40
@@ -181,20 +181,16 @@ To visualize high-dimension embedding, you can run the following command.
 python tsne_embedding.py
 ```
 
-
-
 ## Citation
 
 If you find this repository useful in your research, please cite the following papers:
 
 ```
-@misc{hua2024reconboost,
-  title={ReconBoost: Boosting Can Achieve Modality Reconcilement}, 
-  author={Cong Hua and Qianqian Xu and Shilong Bao and Zhiyong Yang and Qingming Huang},
-  year={2024},
-  eprint={2405.09321},
-  archivePrefix={arXiv},
-  primaryClass={cs.CV}
+@inproceedings{hua2024reconboost,
+title={ReconBoost: Boosting Can Achieve Modality Reconcilement}, 
+author={Cong Hua and Qianqian Xu and Shilong Bao and Zhiyong Yang and Qingming Huang},
+booktitle={The Forty-first International Conference on Machine Learning},
+year={2024}
 }
 ```
 
